@@ -1,0 +1,61 @@
+import javax.swing.JOptionPane;
+
+public class Date {
+	String MMDDYYYY = null;
+	int dayOfMonth = 0;
+	int monthOfYear = 0;
+	int lastDigitsOfYear = 0;
+	int firstDigitsOfYear = 0;
+	int ans = 0;
+	public static void main(String[] args) {
+		Date D = new Date();
+	}
+	Date() {
+		MMDDYYYY = JOptionPane.showInputDialog("Type your date in the format MM/DD/YYYY");
+		Check();
+	}
+	String Check() {
+		if (Character.isDigit(MMDDYYYY.charAt(0))&&
+				Character.isDigit(MMDDYYYY.charAt(1))&&
+				Character.isDigit(MMDDYYYY.charAt(3))&&
+				Character.isDigit(MMDDYYYY.charAt(4))&&
+				Character.isDigit(MMDDYYYY.charAt(6))&&
+				Character.isDigit(MMDDYYYY.charAt(7))&&
+				Character.isDigit(MMDDYYYY.charAt(8))&&
+				Character.isDigit(MMDDYYYY.charAt(9))&&
+				MMDDYYYY.charAt(2)=='/'&&MMDDYYYY.charAt(5)=='/') {
+			return calDay(MMDDYYYY);
+		} else {
+			JOptionPane.showMessageDialog(null, "Oops! You have a mistake in your input!");
+			System.exit(0);
+		}
+	}
+	String calDay(String s) {
+		dayOfMonth = Integer.parseInt(MMDDYYYY.substring(3, 5));
+		monthOfYear = Integer.parseInt(MMDDYYYY.substring(0, 2));
+		lastDigitsOfYear = Integer.parseInt(MMDDYYYY.substring(8, 10));
+		firstDigitsOfYear = Integer.parseInt(MMDDYYYY.substring(6, 8));
+		ans=dayOfMonth+(int)(((13*monthOfYear)-1)/5)+lastDigitsOfYear+
+				(int)(lastDigitsOfYear/4)+(int)(firstDigitsOfYear/4)-
+				2*firstDigitsOfYear;
+		ans = ans%7;
+		if(ans==0) {
+			return "Sunday";
+		} else if(ans==1) {
+			return "Monday";
+		} else if(ans==2) {
+			return "Tuesday";
+		} else if(ans==3) {
+			return "Wednesday";
+		} else if(ans==4) {
+			return "Thursday";
+		} else if(ans==5) {
+			return "Friday";
+		} else if(ans==6) {
+			return "Saturday";
+		}
+		System.out.println(s);
+		return s;
+	}
+}
+

@@ -1,0 +1,11 @@
+
+public class CheckMath {
+	int ans = 0;
+	public static void main(String[] args) {
+		CheckMath CM = new CheckMath();
+	}
+	CheckMath() {
+		ans = 11/6;
+		System.out.println(ans);
+	}
+}

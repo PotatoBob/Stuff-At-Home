@@ -1,0 +1,33 @@
+import javax.swing.JOptionPane;
+
+public class Date {
+	String MMDDYYYY = null;
+	public static void main(String[] args) {
+		Date D = new Date();
+	}
+	Date() {
+		String MMDDYYYY = JOptionPane.showInputDialog("Type your date in the format MM/DD/YYYY");
+		Check();
+	}
+	String Check() {
+		if (Character.isDigit(MMDDYYYY.charAt(0))&&
+				Character.isDigit(MMDDYYYY.charAt(1))&&
+				Character.isDigit(MMDDYYYY.charAt(3))&&
+				Character.isDigit(MMDDYYYY.charAt(4))&&
+				Character.isDigit(MMDDYYYY.charAt(6))&&
+				Character.isDigit(MMDDYYYY.charAt(7))&&
+				Character.isDigit(MMDDYYYY.charAt(8))&&
+				Character.isDigit(MMDDYYYY.charAt(9))&&
+				MMDDYYYY.charAt(2)=='/'&&MMDDYYYY.charAt(5)=='/') {
+			return calDay(MMDDYYYY);
+		} else {
+			JOptionPane.showMessageDialog(null, "Oops! You have a mistake in your input!");
+			return "Oops! You have a mistake in your input!";
+		}
+	}
+	String calDay(String s) {
+		
+		return s;
+	}
+}
+
