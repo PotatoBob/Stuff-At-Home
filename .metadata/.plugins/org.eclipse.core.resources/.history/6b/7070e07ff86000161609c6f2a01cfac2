@@ -1,0 +1,22 @@
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+
+public class JFrames {
+	JFrame window;
+	JPanel panel;
+	JTextField jtf;
+	public static void main(String[] args) {
+		JFrames JF = new JFrames();
+	}
+	JFrames() {
+		window = new JFrame();
+		window.setVisible(true);
+		window.pack();
+		panel = new JPanel();
+		panel.setSize(200, 200);
+		jtf = new JTextField("Hi");
+		panel.add(jtf);
+		window.add(panel);
+	}
+}
